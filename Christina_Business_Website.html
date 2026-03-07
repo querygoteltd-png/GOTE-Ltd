@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christina Hibbert | Professional Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #d4a574;
+            --accent: #f5f1ed;
+            --text: #333;
+            --text-light: #666;
+            --border: #e0d5c7;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Trebuchet MS, sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.4em;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        nav .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 80px 0;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero .tagline {
+            font-size: 1.2em;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: var(--accent);
+        }
+
+        .services h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border-top: 3px solid var(--secondary);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            list-style: none;
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        .service-features li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service-features li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .about-content p {
+            font-size: 1em;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--secondary) 0%, #a88560 100%);
+            border-radius: 6px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1em;
+            text-align: center;
+            padding: 40px;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 100px 0;
+            background: var(--accent);
+        }
+
+        .expertise h2 {
+            font-size: 2.2em;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .expertise-item {
+            background: white;
+            padding: 30px;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .expertise-item h4 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .expertise-item p {
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .contact p {
+            font-size: 1.1em;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .contact-item h4 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .contact-item a,
+        .contact-item p {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero {
+                padding: 60px 0;
+                margin-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.2em;
+            }
+
+            .hero .tagline {
+                font-size: 1em;
+            }
+
+            .services {
+                padding: 60px 0;
+            }
+
+            .services h2 {
+                font-size: 1.8em;
+                margin-bottom: 40px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                padding: 60px 0;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .expertise {
+                padding: 60px 0;
+            }
+
+            .expertise h2 {
+                font-size: 1.8em;
+            }
+
+            .contact {
+                padding: 60px 0;
+            }
+
+            .contact h2 {
+                font-size: 2em;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Christina<span>.</span></div>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#expertise">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Professional Services<br>Built for Your Success</h1>
+            <p class="tagline">Customer service expertise, sales strategy, business support, and sustainable solutions—all tailored to drive your growth.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="#services" class="btn btn-secondary">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Services</h2>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">💬</div>
+                    <h3>Customer Service & Support</h3>
+                    <p>Expert support across phone, email, and chat. I resolve complex issues with empathy and expertise in SaaS, IaaS, and PaaS environments.</p>
+                    <ul class="service-features">
+                        <li>Multi-channel support (phone, email, chat)</li>
+                        <li>Technical troubleshooting</li>
+                        <li>CRM management (Zendesk, Slack)</li>
+                        <li>Client satisfaction & retention</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Sales & Account Growth</h3>
+                    <p>Drive revenue growth through consultative selling, lead generation, and strategic account management. Build relationships that convert.</p>
+                    <ul class="service-features">
+                        <li>Lead generation & prospecting</li>
+                        <li>Sales strategy & upselling</li>
+                        <li>Pipeline management</li>
+                        <li>B2B/B2C relationship building</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">✉️</div>
+                    <h3>Virtual Assistant Services</h3>
+                    <p>Streamline your operations with dedicated administrative and business support. From email to scheduling to prospecting, I've got you covered.</p>
+                    <ul class="service-features">
+                        <li>Calendar & email management</li>
+                        <li>Data entry & organization</li>
+                        <li>Research & prospecting</li>
+                        <li>Client coordination</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon">💄</div>
+                    <h3>Beauty & Cosmetology</h3>
+                    <p>GOTE LTD: Premium cosmetology products and customization services. Building a brand focused on quality, self-care, and beauty for all.</p>
+                    <ul class="service-features">
+                        <li>Custom product development</li>
+                        <li>Brand building & strategy</li>
+                        <li>Shopify & e-commerce setup</li>
+                        <li>Product consultation</li>
+                    </ul>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-icon">🌱</div>
+                    <h3>Sustainable Living & Horticulture</h3>
+                    <p>Passionate advocate for sustainable living. "Grow what we eat, eat what we grow." Consulting on backyard gardening, urban farming, and eco-conscious living.</p>
+                    <ul class="service-features">
+                        <li>Gardening & horticulture advice</li>
+                        <li>Sustainable living consultation</li>
+                        <li>Organic growing techniques</li>
+                        <li>Community education</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div>
+            <h2>About Me</h2>
+            <p>I'm a customer-focused professional with over 5 years of experience delivering exceptional results in high-volume, dynamic environments. I combine technical expertise with genuine empathy to drive business growth, strengthen client relationships, and exceed organizational goals.</p>
+            <p>Whether I'm managing complex support issues, closing deals, building strategic partnerships, launching a beauty brand, or promoting sustainable living, I bring a consultative approach that turns challenges into opportunities.</p>
+            <p>I'm passionate about continuous learning—currently pursuing certifications in business administration, sales management, and IT support. Based in Montego Bay, Jamaica, I bring diverse skills and a commitment to delivering measurable business outcomes.</p>
+            <div class="about-stats">
+                <div class="stat">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Passion for Growth</div>
+                </div>
+            </div>
+        </div>
+        <div class="about-image">
+            <p style="font-size: 3em; opacity: 0.3;">👤</p>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise" id="expertise">
+        <div class="container">
+            <h2>Core Competencies</h2>
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <h4>CRM Systems</h4>
+                    <p>Zendesk, Slack, workflow optimization & pipeline management</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>Technical Support</h4>
+                    <p>SaaS/IaaS/PaaS troubleshooting & client guidance</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>Sales Strategy</h4>
+                    <p>Lead generation, prospecting, upselling & conversions</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>Business Development</h4>
+                    <p>B2B/B2C relationships, account growth & retention</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>Communication</h4>
+                    <p>Humanized communication across phone, email & chat</p>
+                </div>
+                <div class="expertise-item">
+                    <h4>Digital Tools</h4>
+                    <p>Shopify, Google Cloud, web management & automation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <p>Ready to elevate your customer service, drive sales growth, streamline operations, or explore new business opportunities? Get in touch—I'd love to discuss how I can help you succeed.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>📧 Email</h4>
+                    <a href="mailto:christinahibbert11@gmail.com">christinahibbert11@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <h4>📱 Phone</h4>
+                    <p>(876) 777-8232</p>
+                </div>
+                <div class="contact-item">
+                    <h4>🔗 LinkedIn</h4>
+                    <a href="https://www.linkedin.com/in/christina-hibbert-b57113223" target="_blank">Visit Profile</a>
+                </div>
+            </div>
+            <a href="mailto:christinahibbert11@gmail.com" class="btn btn-primary">Send Me an Email</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Christina Hibbert. All rights reserved. | Based in Montego Bay, Jamaica</p>
+    </footer>
+
+</body>
+</html>
