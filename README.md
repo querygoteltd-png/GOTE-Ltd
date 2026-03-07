@@ -1,4 +1,4 @@
-# Christina Hibbert - Professional Services Website
+# GOTE Ltd - Professional Services Website
 
 A modern, professional business website showcasing customer service expertise, sales strategy, virtual assistant services, beauty/cosmetology products, and sustainable living consulting.
 
@@ -13,8 +13,8 @@ This is a single-page website built with clean HTML and CSS. It serves as a prof
 - Customer Service & Support (multi-channel, technical expertise)
 - Sales & Account Growth (lead generation, pipeline management)
 - Virtual Assistant Services (calendar, email, research, coordination)
-- Beauty & Cosmetology (GOTE LTD brand, Shopify setup)
-- Sustainable Living & Horticulture (gardening, eco-consulting)
+- Beauty & Cosmetology
+  
 
 ## 🎨 Design
 
