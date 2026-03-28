@@ -19,18 +19,3 @@ This is a single-page website built with clean HTML and CSS. It serves as a prof
 - Phone: (876) 777-8232
 - LinkedIn: [christina-hibbert-b57113223](https://www.linkedin.com/in/christina-hibbert-b57113223)
 
-## 📄 License
-
-This website template is created for Christina Hibbert's professional use.
-
-## 🎓 Resources
-
-- [HTML Tutorial](https://www.w3schools.com/html/)
-- [CSS Guide](https://www.w3schools.com/css/)
-- [GitHub Pages Docs](https://docs.github.com/en/pages)
-- [Netlify Documentation](https://docs.netlify.com/)
-- [Web Design Best Practices](https://www.smashingmagazine.com/)
-
----
-
-**Made with ❤️ for professional success**
